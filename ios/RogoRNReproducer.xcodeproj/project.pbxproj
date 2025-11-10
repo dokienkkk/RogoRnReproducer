@@ -22,6 +22,8 @@
 		B41565292EC19DE300C48446 /* nRFMeshProvision.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B415652A2EC19DE400C48446 /* RogoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; };
 		B415652B2EC19DE400C48446 /* RogoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B483EEFF2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = B483EEFE2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm */; };
+		B483EF012EC1BB8B00CB9BFE /* RogoSdkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483EF002EC1BB8B00CB9BFE /* RogoSdkImpl.swift */; };
 		D36E413653720B4914DE74E0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55890FC59718A1A58294017B /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,10 @@
 		B415651B2EC19DCA00C48446 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MqttCocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nRFMeshProvision.framework; sourceTree = "<group>"; };
+		B483EEFC2EC1BA8E00CB9BFE /* RogoRNReproducer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RogoRNReproducer-Bridging-Header.h"; sourceTree = "<group>"; };
+		B483EEFD2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNativeRogoSdk.h; sourceTree = "<group>"; };
+		B483EEFE2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeRogoSdk.mm; sourceTree = "<group>"; };
+		B483EF002EC1BB8B00CB9BFE /* RogoSdkImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RogoSdkImpl.swift; sourceTree = "<group>"; };
 		DF41B55F6670DA7238DB1647 /* Pods_RogoRNReproducer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RogoRNReproducer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -110,6 +116,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B483EEFB2EC1BA5C00CB9BFE /* NativeRalliModule */,
 				B4658F752EB5936C005100CF /* VendorFramework */,
 				13B07FAE1A68108700A75B9A /* RogoRNReproducer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -141,6 +148,17 @@
 				B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */,
 			);
 			path = VendorFramework;
+			sourceTree = "<group>";
+		};
+		B483EEFB2EC1BA5C00CB9BFE /* NativeRalliModule */ = {
+			isa = PBXGroup;
+			children = (
+				B483EEFD2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.h */,
+				B483EEFE2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm */,
+				B483EEFC2EC1BA8E00CB9BFE /* RogoRNReproducer-Bridging-Header.h */,
+				B483EF002EC1BB8B00CB9BFE /* RogoSdkImpl.swift */,
+			);
+			path = NativeRalliModule;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -204,7 +222,7 @@
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1620;
 					};
 				};
 			};
@@ -352,7 +370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+				B483EEFF2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm in Sources */,
 				D36E413653720B4914DE74E0 /* ExpoModulesProvider.swift in Sources */,
+				B483EF012EC1BB8B00CB9BFE /* RogoSdkImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +407,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rallismart;
 				PRODUCT_NAME = RogoRNReproducer;
+				SWIFT_OBJC_BRIDGING_HEADER = "NativeRalliModule/RogoRNReproducer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -420,6 +441,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rallismart;
 				PRODUCT_NAME = RogoRNReproducer;
+				SWIFT_OBJC_BRIDGING_HEADER = "NativeRalliModule/RogoRNReproducer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -9,6 +9,14 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "codegenConfig": {
+    "name": "NativeRalliModuleSpec",
+    "type": "modules",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.nativelocalstorage"
+    }
+  },
   "dependencies": {
     "@react-native-firebase/app": "22.2.1",
     "expo": "~53.0.0",

@@ -3,6 +3,7 @@ import Expo
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
+import RogoCore
 
 @main
 class AppDelegate: ExpoAppDelegate {
@@ -24,6 +25,16 @@ class AppDelegate: ExpoAppDelegate {
     bindReactNativeFactory(factory)
 
     window = UIWindow(frame: UIScreen.main.bounds)
+    
+    // Rogo
+    RGCore.shared.setTargetEnviroment(environment: .development)
+    RGCore.shared.config(appKey: "", appSecret: "", completion: { response, error in
+      guard response == true, error == nil else {
+        print("[Rogo] Config failed \(error?.localizedDescription ?? "unkonwn error")")
+        return
+      }
+      print("[Rogo] Config success \(response)")
+    })
 
     factory.startReactNative(
       withModuleName: "RogoRNReproducer",
