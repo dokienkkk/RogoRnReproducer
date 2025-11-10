@@ -8,24 +8,57 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1E1F1659456304DE04D92D8E /* Pods_RogoRNReproducer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41B55F6670DA7238DB1647 /* Pods_RogoRNReproducer.framework */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		88D0A5FE8540E72F8C32A195 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		9DA0873C8AD1A2BC558CF81A /* Pods_RogoRNReproducer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991E0EE8DF41BCA76AA031C3 /* Pods_RogoRNReproducer.framework */; };
+		B41565222EC19DDE00C48446 /* CocoaMQTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */; };
+		B41565232EC19DDE00C48446 /* CocoaMQTT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B41565242EC19DE000C48446 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B415651B2EC19DCA00C48446 /* CryptoSwift.framework */; };
+		B41565252EC19DE000C48446 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651B2EC19DCA00C48446 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B41565262EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */; };
+		B41565272EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B41565282EC19DE300C48446 /* nRFMeshProvision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */; };
+		B41565292EC19DE300C48446 /* nRFMeshProvision.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B415652A2EC19DE400C48446 /* RogoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; };
+		B415652B2EC19DE400C48446 /* RogoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36E413653720B4914DE74E0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55890FC59718A1A58294017B /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B4658F802EB5939E005100CF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B41565232EC19DDE00C48446 /* CocoaMQTT.framework in Embed Frameworks */,
+				B41565272EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Embed Frameworks */,
+				B41565292EC19DE300C48446 /* nRFMeshProvision.framework in Embed Frameworks */,
+				B415652B2EC19DE400C48446 /* RogoCore.framework in Embed Frameworks */,
+				B41565252EC19DE000C48446 /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02CE2369B0F16BBE88BEDA46 /* Pods-RogoRNReproducer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RogoRNReproducer.release.xcconfig"; path = "Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RogoRNReproducer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RogoRNReproducer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RogoRNReproducer/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RogoRNReproducer/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = RogoRNReproducer/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		153F393476740214D90AC9B2 /* Pods-RogoRNReproducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RogoRNReproducer.debug.xcconfig"; path = "Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer.debug.xcconfig"; sourceTree = "<group>"; };
 		55890FC59718A1A58294017B /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RogoRNReproducer/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = RogoRNReproducer/AppDelegate.swift; sourceTree = "<group>"; };
-		7F1DF82C965826621559136C /* Pods-RogoRNReproducer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RogoRNReproducer.release.xcconfig"; path = "Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RogoRNReproducer/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		991E0EE8DF41BCA76AA031C3 /* Pods_RogoRNReproducer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RogoRNReproducer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C88868D563674A72E8AEB53 /* Pods-RogoRNReproducer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RogoRNReproducer.debug.xcconfig"; path = "Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer.debug.xcconfig"; sourceTree = "<group>"; };
+		B41565182EC19D9F00C48446 /* RogoCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RogoCore.framework; sourceTree = "<group>"; };
+		B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaMQTT.framework; sourceTree = "<group>"; };
+		B415651B2EC19DCA00C48446 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MqttCocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nRFMeshProvision.framework; sourceTree = "<group>"; };
+		DF41B55F6670DA7238DB1647 /* Pods_RogoRNReproducer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RogoRNReproducer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -34,7 +67,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DA0873C8AD1A2BC558CF81A /* Pods_RogoRNReproducer.framework in Frameworks */,
+				B41565222EC19DDE00C48446 /* CocoaMQTT.framework in Frameworks */,
+				B41565242EC19DE000C48446 /* CryptoSwift.framework in Frameworks */,
+				B415652A2EC19DE400C48446 /* RogoCore.framework in Frameworks */,
+				B41565282EC19DE300C48446 /* nRFMeshProvision.framework in Frameworks */,
+				B41565262EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Frameworks */,
+				1E1F1659456304DE04D92D8E /* Pods_RogoRNReproducer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				991E0EE8DF41BCA76AA031C3 /* Pods_RogoRNReproducer.framework */,
+				DF41B55F6670DA7238DB1647 /* Pods_RogoRNReproducer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,6 +110,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B4658F752EB5936C005100CF /* VendorFramework */,
 				13B07FAE1A68108700A75B9A /* RogoRNReproducer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -92,11 +131,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B4658F752EB5936C005100CF /* VendorFramework */ = {
+			isa = PBXGroup;
+			children = (
+				B41565182EC19D9F00C48446 /* RogoCore.framework */,
+				B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */,
+				B415651B2EC19DCA00C48446 /* CryptoSwift.framework */,
+				B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */,
+				B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */,
+			);
+			path = VendorFramework;
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9C88868D563674A72E8AEB53 /* Pods-RogoRNReproducer.debug.xcconfig */,
-				7F1DF82C965826621559136C /* Pods-RogoRNReproducer.release.xcconfig */,
+				153F393476740214D90AC9B2 /* Pods-RogoRNReproducer.debug.xcconfig */,
+				02CE2369B0F16BBE88BEDA46 /* Pods-RogoRNReproducer.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -124,15 +175,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RogoRNReproducer" */;
 			buildPhases = (
-				465742A91D8A3ED1D22B67BC /* [CP] Check Pods Manifest.lock */,
+				40E8336E6F36B16EA13FA21E /* [CP] Check Pods Manifest.lock */,
 				087F382EDE0422B2C97E7AC4 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				795426008BC04AA5F19D4B2D /* [CP] Embed Pods Frameworks */,
-				124BF67BA5162913B8017C81 /* [CP] Copy Pods Resources */,
-				AE43F8432C7C83005212F05A /* [CP-User] [RNFB] Core Configuration */,
+				B4658F802EB5939E005100CF /* Embed Frameworks */,
+				4AA456F84B560C06786B01AA /* [CP] Embed Pods Frameworks */,
+				64076EB70FFD3CC32D21D6D6 /* [CP] Copy Pods Resources */,
+				78EAF1102DFB1C24A8DF6F0D /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -223,24 +275,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-RogoRNReproducer/expo-configure-project.sh\"\n";
 		};
-		124BF67BA5162913B8017C81 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		465742A91D8A3ED1D22B67BC /* [CP] Check Pods Manifest.lock */ = {
+		40E8336E6F36B16EA13FA21E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,7 +297,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		795426008BC04AA5F19D4B2D /* [CP] Embed Pods Frameworks */ = {
+		4AA456F84B560C06786B01AA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -279,7 +314,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE43F8432C7C83005212F05A /* [CP-User] [RNFB] Core Configuration */ = {
+		64076EB70FFD3CC32D21D6D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RogoRNReproducer/Pods-RogoRNReproducer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78EAF1102DFB1C24A8DF6F0D /* [CP-User] [RNFB] Core Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -309,13 +361,17 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C88868D563674A72E8AEB53 /* Pods-RogoRNReproducer.debug.xcconfig */;
+			baseConfigurationReference = 153F393476740214D90AC9B2 /* Pods-RogoRNReproducer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4JBU2XTM9L;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VendorFramework",
+				);
 				INFOPLIST_FILE = RogoRNReproducer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -339,12 +395,16 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F1DF82C965826621559136C /* Pods-RogoRNReproducer.release.xcconfig */;
+			baseConfigurationReference = 02CE2369B0F16BBE88BEDA46 /* Pods-RogoRNReproducer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4JBU2XTM9L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VendorFramework",
+				);
 				INFOPLIST_FILE = RogoRNReproducer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

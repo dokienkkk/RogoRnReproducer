@@ -1,10 +1,5 @@
 PODS:
   - boost (1.84.0)
-  - CocoaMQTT (2.0.9):
-    - CocoaMQTT/Core (= 2.0.9)
-  - CocoaMQTT/Core (2.0.9):
-    - MqttCocoaAsyncSocket (~> 1.0.8)
-  - CryptoSwift (1.5.1)
   - DoubleConversion (1.1.6)
   - EXConstants (17.1.7):
     - ExpoModulesCore
@@ -91,9 +86,6 @@ PODS:
   - hermes-engine (0.79.6):
     - hermes-engine/Pre-built (= 0.79.6)
   - hermes-engine/Pre-built (0.79.6)
-  - MqttCocoaAsyncSocket (1.0.8)
-  - nRFMeshProvision (3.2.0):
-    - CryptoSwift (= 1.5.1)
   - RCT-Folly (2024.11.18.00):
     - boost
     - DoubleConversion
@@ -1743,9 +1735,6 @@ PODS:
   - RNFBApp (22.2.1):
     - Firebase/CoreOnly (= 11.13.0)
     - React-Core
-  - RogoCore (1.0.9.23):
-    - CocoaMQTT (~> 2.0.7)
-    - nRFMeshProvision (~> 3.2.0)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
 
@@ -1829,20 +1818,14 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
-  - RogoCore
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
-    - CocoaMQTT
-    - CryptoSwift
     - Firebase
     - FirebaseCore
     - FirebaseCoreInternal
     - GoogleUtilities
-    - MqttCocoaAsyncSocket
-    - nRFMeshProvision
-    - RogoCore
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -2006,8 +1989,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
-  CocoaMQTT: 76904ac6102297972e1a42343dd77a6da3862a69
-  CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   EXConstants: 98bcf0f22b820f9b28f9fee55ff2daededadd2f8
   Expo: c02e50e47c7176661016828b8fe20e28ec2c343b
@@ -2025,8 +2006,6 @@ SPEC CHECKSUMS:
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   hermes-engine: 44bb6fe76a6eb400d3a992e2d0b21946ae999fa9
-  MqttCocoaAsyncSocket: 77d3b74f76228dd5a05d1f9526eab101d415b30c
-  nRFMeshProvision: 297bbda9dc44138c1b63b1ac5e4c860f0398e176
   RCT-Folly: e78785aa9ba2ed998ea4151e314036f6c49e6d82
   RCTDeprecation: 9bc64754b40b86fa5e32f293ab3ea8eea2248339
   RCTRequired: ee36c1ce9a5e65a3f629c13f38a85308eb8eebda
@@ -2090,10 +2069,9 @@ SPEC CHECKSUMS:
   ReactCodegen: 3d5c9def468f7df3b90b05d3098ab8d47d76c62e
   ReactCommon: 4c22936ee38ecf885efc95ac5832f430f27e0271
   RNFBApp: db9c2e6d36fe579ab19b82c0a4a417ff7569db7e
-  RogoCore: 3ad4e8d4c01d6e14387d1c5217a22ac9960eae1a
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: c0ce6ae14686223fe24e3cf8ae86a46d7617b728
 
-PODFILE CHECKSUM: 386010e66d87496b8ca0249a604c169ca7947a8b
+PODFILE CHECKSUM: 83e00d4d80db2683533ad1ce599789c8587ff336
 
 COCOAPODS: 1.15.2
