@@ -92,6 +92,15 @@ function App(): React.JSX.Element {
               NativeRogoSdk.stopScan();
             }}
           />
+
+          <Button
+            title="Test Connect Wifi"
+            onPress={() => {
+              const ssid = 'DigitalR&D';
+              const pass = 'DigitalRD@2804';
+              NativeRogoSdk.connectWifi(ssid, pass);
+            }}
+          />
         </>
       ) : (
         <>

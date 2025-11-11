@@ -69,7 +69,7 @@ public struct RGBDisableAccountResponse : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension RogoCore.RGBDeviceServices {
-  public func scanAvailableWileDevices(deviceType: RogoCore.RGBProductType?, timeout: Swift.Int = 10, didDetectedDevicesHandler: RogoCore.RGBCompletionObject<[RogoCore.RGBMeshScannedDevice]?>? = nil, completion: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice?>? = nil)
+  public func scanAvailableWileDevices(deviceType: RogoCore.RGBProductType?, timeout: Swift.Int = 10, didDetectedDeviceHandler: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice>? = nil, completion: RogoCore.RGBCompletionObject<[RogoCore.RGBMeshScannedDevice]?>? = nil)
   public func scanAvailableWileDevice(timeout: Swift.Int = 30, limitRssi: Swift.Int?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice?>?)
   public func startConfigWileDevice(device: RogoCore.RGBMeshScannedDevice, didUpdateProgessing: ((_ completedPercent: Swift.Int) -> ())?, wifiScanCompletedHandler: ((_ listWifiInfos: [RogoCore.RGBWifiInfo]) -> ())?, wifiSelectionHandler: inout ((_ ssid: Swift.String, _ pwd: Swift.String) -> ())?, wifiConnectErrorHandler: ((_ ssid: Swift.String?, _ password: Swift.String?, _ wifiConnectionState: RogoCore.RGBWifiConnectionErrorType) -> ())?, didCompletedHandler: ((_ deviceInfo: RogoCore.RGBDevice?) -> ())?)
   public func startConfigWileDevice(device: RogoCore.RGBMeshScannedDevice)
@@ -484,8 +484,8 @@ public struct RGBPeripheralInfo {
   public let serialPortSize: Swift.Int?
   public let peripheralId: Swift.String?
   public let peripheralType: Swift.Int?
-  public let pID: Swift.String?
-  public let vId: Swift.String?
+  public let pID: Swift.Int?
+  public let vId: Swift.Int?
   public let modelId: Swift.String?
   public let serialPortInfo: [RogoCore.RGBSerialPortInfo]?
   public var vendorName: Swift.String {
@@ -621,6 +621,40 @@ public enum RGBNetworkEnvironment : Swift.String {
   public func addCameraWith(deviceInfo: RogoCore.RGBFptCameraDetail, completion: RogoCore.RGBCompletionObject<Swift.Void?>?)
   @objc deinit
 }
+public enum RGBNetworkInterfaceType : Swift.Int {
+  case UNKNOWN
+  case ETHERNET
+  case WIFI
+  case MOBILE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum RGBNetworkDHCPType : Swift.Int {
+  case DHCP_MODE_MAC_DEFAULT
+  case DHCP_MODE_AUTO_MAC_STATIC
+  case DHCP_MODE_AUTO_MAC_RANDOM
+  case DHCP_MODE_STATIC
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RGBNetworkConnectivityInfo : RogoCore.RGBCmdValue {
+  public var interfaceNumber: Swift.Int
+  public var interfaceType: RogoCore.RGBNetworkInterfaceType?
+  public var dhcpMode: RogoCore.RGBNetworkDHCPType?
+  public var wifiConnectionState: RogoCore.RGBWifiConnectionStateType?
+  public var wifiAuthType: RogoCore.RGBWifiAuthenticationMethod?
+  public var strength: Swift.Int?
+  public var ipV4Address: Swift.String?
+  public var ipV6Address: Swift.String?
+  public init(valueBytes: [Swift.UInt8])
+  @objc deinit
+}
 public protocol RGBMeshDelegate : AnyObject {
   func didProvisioningSuccess(setDeviceInfoHandler: ((_ deviceLabel: Swift.String?, _ groupId: Swift.String?) -> ())?)
   func didUpdateProgessing(percent: Swift.Int)
@@ -710,7 +744,7 @@ public protocol RGBiDeviceServices {
   func setIRDetectModeFor(deviceType: RogoCore.RGBDeviceType, hub: RogoCore.RGBDevice, observer: Swift.AnyObject?, isEnable: Swift.Bool, timeout: Swift.Int?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBIrRemoteInfo?>?)
   func addIrFanRemoteFromLearnedRaw(remoteInfos: [RogoCore.RGBIrRemoteRawInfo], label: Swift.String, group: RogoCore.RGBGroup?, toHub hub: RogoCore.RGBDevice, timeOut: Swift.Int?, observer: Swift.AnyObject?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBDevice?>?)
   func getLearnedIrRemoteCommandDataOf(device: RogoCore.RGBDevice, completion: RogoCore.RGBCompletionObject<[RogoCore.RGBIrRemoteCmdZipData]?>?)
-  func scanAvailableWileDevices(deviceType: RogoCore.RGBProductType?, timeout: Swift.Int, didDetectedDevicesHandler: RogoCore.RGBCompletionObject<[RogoCore.RGBMeshScannedDevice]?>?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice?>?)
+  func scanAvailableWileDevices(deviceType: RogoCore.RGBProductType?, timeout: Swift.Int, didDetectedDeviceHandler: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice>?, completion: RogoCore.RGBCompletionObject<[RogoCore.RGBMeshScannedDevice]?>?)
   func addAcRemoteFromLearnedRaws(remoteInfos: [RogoCore.RGBIrRemoteRawInfo], label: Swift.String, group: RogoCore.RGBGroup?, toHub hub: RogoCore.RGBDevice, timeOut: Swift.Int?, observer: Swift.AnyObject?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBDevice?>?)
   func scanAvailableWileDevice(timeout: Swift.Int, limitRssi: Swift.Int?, completion: RogoCore.RGBCompletionObject<RogoCore.RGBMeshScannedDevice?>?)
   func startConfigWileDevice(device: RogoCore.RGBMeshScannedDevice, didUpdateProgessing: ((_ completedPercent: Swift.Int) -> ())?, wifiScanCompletedHandler: ((_ listWifiInfos: [RogoCore.RGBWifiInfo]) -> ())?, wifiSelectionHandler: inout ((_ ssid: Swift.String, _ pwd: Swift.String) -> ())?, wifiConnectErrorHandler: ((_ ssid: Swift.String?, _ password: Swift.String?, _ wifiConnectionState: RogoCore.RGBWifiConnectionErrorType) -> ())?, didCompletedHandler: ((_ deviceInfo: RogoCore.RGBDevice?) -> ())?)
@@ -1242,6 +1276,52 @@ public enum RGBLockUnlockValue : Swift.Int {
   public init(valueBytes: [Swift.UInt8])
   @objc deinit
 }
+public enum RGBSoftwareOtaType : Swift.Int {
+  case WILEV1
+  case WILEV2
+  case BLUETOOTHMESH
+  case ZIGBEE
+  case NOTSUPPORT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum RGBOtaStatusCode : Swift.Int {
+  case SUCCESS
+  case INPROGRESS
+  case FAILURE
+  case NOTUPDATE
+  case SOFTWARE_DOWNLOADING
+  case SOFTWARE_UPDATING
+  case UPDATE_LATER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum RGBOtaErrorCode : Swift.Int {
+  case GENERAL
+  case URL_IS_NOT_EXIST
+  case OTA_IS_NOT_SUPPORT
+  case OTA_IS_BUSY
+  case VERSION_IS_LOWER
+  case VERSION_IS_NOT_INCREASE
+  case SOFTWARE_DOWNLOADING_FAILURE_GENERAL
+  case SOFTWARE_DOWNLOADING_FAILURE_HTTPS_CERT
+  case SOFTWARE_UPDATING_FAILURE_GENERAL
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct RGBSoftwareOtaInfo {
+  public let status: RogoCore.RGBOtaStatusCode?
+  public let error: RogoCore.RGBOtaErrorCode?
+}
 @_hasMissingDesignatedInitializers public class RGBScheduleServices : RogoCore.RGBiScheduleServices {
   public func getAllSchedules(completion: RogoCore.RGBCompletionObject<[RogoCore.RGBSchedule]?>?)
   public func getListSchedulesAt(location: RogoCore.RGBLocation, completion: RogoCore.RGBCompletionObject<[RogoCore.RGBSchedule]?>?)
@@ -1497,6 +1577,40 @@ public struct RGBAutomationEventEXT : Swift.Codable {
   public init(mac: Swift.String? = nil, deviceID: Swift.String? = nil, element: Swift.Int? = nil, event: Swift.Int? = nil, val1: Swift.Int? = nil, val2: Swift.Int? = nil, val3: Swift.Int? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+public enum RGBSoftwareReleaseType : Swift.Int {
+  case PRODUCTION
+  case BETA
+  case DEVELOPMENT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum RGBSoftwarePackageType : Swift.Int {
+  case UNKNOWN
+  case APK
+  case JAVA
+  case FIRMWARE
+  case OTHER
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RGBSoftwareInfo : RogoCore.RGBCmdValue {
+  public var releaseType: RogoCore.RGBSoftwareReleaseType?
+  public var packageType: RogoCore.RGBSoftwarePackageType?
+  public var otaType: RogoCore.RGBSoftwareOtaType?
+  public var wifiAuthType: RogoCore.RGBWifiAuthenticationMethod?
+  public var strength: Swift.Int?
+  public var ipV4Address: Swift.String?
+  public var ipV6Address: Swift.String?
+  public var otaInfo: RogoCore.RGBSoftwareOtaInfo?
+  public init(valueBytes: [Swift.UInt8])
+  @objc deinit
 }
 public enum RGBSmartTriggerCondition : Swift.Int, Swift.CaseIterable {
   case ANY
@@ -2431,15 +2545,21 @@ public enum RGBAuthResponse {
     get
   }
 }
-public enum RGBWifiConnectionStateType : Swift.UInt8 {
+public enum RGBWifiConnectionStateType : Swift.Int {
   case NONE
   case CONNECTING
+  case CONNECTED
   case DISCONNECTING
   case DISCONNECTED
+  case LINKLOSS
+  case CLOSE
   case RETRY_CONNECTING
-  public init?(rawValue: Swift.UInt8)
-  public typealias RawValue = Swift.UInt8
-  public var rawValue: Swift.UInt8 {
+  case PASSWORD_WRONG
+  case SSID_NOTFOUND
+  case SOME_THING_WENT_WRONG
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }
@@ -2461,12 +2581,14 @@ public protocol RGBiScenarioServices {
   func deleteScenarioWith(uuid: Swift.String, completion: RogoCore.RGBCompletionObject<Swift.Void?>?)
   func runScenario(scenario: RogoCore.RGBScenario, completion: RogoCore.RGBCompletionObject<Swift.Void?>?)
 }
+@available(*, deprecated, message: "Use RGBOtaStatusCode instead.")
 public enum RGBOtaProgressStatusType : Swift.Int {
   case Success
   case InProgress
   case Failure
   case SameVersion
   public init?(rawValue: Swift.Int)
+  @available(*, deprecated, message: "Use RGBOtaStatusCode instead.")
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2592,6 +2714,27 @@ public enum RGBIrProtocolType : Swift.Int, Swift.Codable {
   public var rawValue: Swift.Int {
     get
   }
+}
+public enum RGBOSType : Swift.Int {
+  case UNKNOW
+  case LINUX_GENERAL
+  case DEBIAN
+  case ARMBIAN
+  case RTOS
+  case FREE_RTOS
+  case WINDOWS
+  case WINDOWS_IOT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RGBOperatingSystemInfo : RogoCore.RGBCmdValue {
+  public var osType: RogoCore.RGBOSType?
+  public var osSubType: Swift.Int?
+  public init(valueBytes: [Swift.UInt8])
+  @objc deinit
 }
 public enum RGBSmartAutomationType : Swift.Int, Swift.CaseIterable {
   case TYPE_MIX_OR
@@ -3331,6 +3474,12 @@ extension RogoCore.RGBIotMessageSenderFrom : Swift.RawRepresentable {}
 extension RogoCore.RGBNetworkEnvironment : Swift.Equatable {}
 extension RogoCore.RGBNetworkEnvironment : Swift.Hashable {}
 extension RogoCore.RGBNetworkEnvironment : Swift.RawRepresentable {}
+extension RogoCore.RGBNetworkInterfaceType : Swift.Equatable {}
+extension RogoCore.RGBNetworkInterfaceType : Swift.Hashable {}
+extension RogoCore.RGBNetworkInterfaceType : Swift.RawRepresentable {}
+extension RogoCore.RGBNetworkDHCPType : Swift.Equatable {}
+extension RogoCore.RGBNetworkDHCPType : Swift.Hashable {}
+extension RogoCore.RGBNetworkDHCPType : Swift.RawRepresentable {}
 extension RogoCore.RGBOpenCloseValue : Swift.Equatable {}
 extension RogoCore.RGBOpenCloseValue : Swift.Hashable {}
 extension RogoCore.RGBOpenCloseValue : Swift.RawRepresentable {}
@@ -3349,11 +3498,26 @@ extension RogoCore.RGBSmartTriggerType : Swift.RawRepresentable {}
 extension RogoCore.RGBLockUnlockValue : Swift.Equatable {}
 extension RogoCore.RGBLockUnlockValue : Swift.Hashable {}
 extension RogoCore.RGBLockUnlockValue : Swift.RawRepresentable {}
+extension RogoCore.RGBSoftwareOtaType : Swift.Equatable {}
+extension RogoCore.RGBSoftwareOtaType : Swift.Hashable {}
+extension RogoCore.RGBSoftwareOtaType : Swift.RawRepresentable {}
+extension RogoCore.RGBOtaStatusCode : Swift.Equatable {}
+extension RogoCore.RGBOtaStatusCode : Swift.Hashable {}
+extension RogoCore.RGBOtaStatusCode : Swift.RawRepresentable {}
+extension RogoCore.RGBOtaErrorCode : Swift.Equatable {}
+extension RogoCore.RGBOtaErrorCode : Swift.Hashable {}
+extension RogoCore.RGBOtaErrorCode : Swift.RawRepresentable {}
 extension RogoCore.RGBSmartCmd : Swift.Encodable {}
 extension RogoCore.RGBSmartCmd : Swift.Decodable {}
 extension RogoCore.RGBErrorCode : Swift.Equatable {}
 extension RogoCore.RGBErrorCode : Swift.Hashable {}
 extension RogoCore.RGBErrorCode : Swift.RawRepresentable {}
+extension RogoCore.RGBSoftwareReleaseType : Swift.Equatable {}
+extension RogoCore.RGBSoftwareReleaseType : Swift.Hashable {}
+extension RogoCore.RGBSoftwareReleaseType : Swift.RawRepresentable {}
+extension RogoCore.RGBSoftwarePackageType : Swift.Equatable {}
+extension RogoCore.RGBSoftwarePackageType : Swift.Hashable {}
+extension RogoCore.RGBSoftwarePackageType : Swift.RawRepresentable {}
 extension RogoCore.RGBSmartTriggerCondition : Swift.Equatable {}
 extension RogoCore.RGBSmartTriggerCondition : Swift.Hashable {}
 extension RogoCore.RGBSmartTriggerCondition : Swift.RawRepresentable {}
@@ -3419,12 +3583,18 @@ extension RogoCore.RGBWifiConnectionStateType : Swift.RawRepresentable {}
 extension RogoCore.RGBWifiConnectionErrorType : Swift.Equatable {}
 extension RogoCore.RGBWifiConnectionErrorType : Swift.Hashable {}
 extension RogoCore.RGBWifiConnectionErrorType : Swift.RawRepresentable {}
+@available(*, deprecated, message: "Use RGBOtaStatusCode instead.")
 extension RogoCore.RGBOtaProgressStatusType : Swift.Equatable {}
+@available(*, deprecated, message: "Use RGBOtaStatusCode instead.")
 extension RogoCore.RGBOtaProgressStatusType : Swift.Hashable {}
+@available(*, deprecated, message: "Use RGBOtaStatusCode instead.")
 extension RogoCore.RGBOtaProgressStatusType : Swift.RawRepresentable {}
 extension RogoCore.RGBIrProtocolType : Swift.Equatable {}
 extension RogoCore.RGBIrProtocolType : Swift.Hashable {}
 extension RogoCore.RGBIrProtocolType : Swift.RawRepresentable {}
+extension RogoCore.RGBOSType : Swift.Equatable {}
+extension RogoCore.RGBOSType : Swift.Hashable {}
+extension RogoCore.RGBOSType : Swift.RawRepresentable {}
 extension RogoCore.RGBSmartAutomationType : Swift.Equatable {}
 extension RogoCore.RGBSmartAutomationType : Swift.Hashable {}
 extension RogoCore.RGBSmartAutomationType : Swift.RawRepresentable {}

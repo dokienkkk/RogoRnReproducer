@@ -71,4 +71,9 @@
   return [rogoSdkImpl stopScan];
 }
 
+- (void)connectWifi:(nonnull NSString *)ssid pass:(nonnull NSString *)pass { 
+  return [rogoSdkImpl connectWifiWithSsid:ssid pass:pass];
+}
+
+
 @end

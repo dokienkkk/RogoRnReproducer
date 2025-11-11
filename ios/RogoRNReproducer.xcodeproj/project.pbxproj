@@ -20,8 +20,8 @@
 		B41565272EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B41565282EC19DE300C48446 /* nRFMeshProvision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */; };
 		B41565292EC19DE300C48446 /* nRFMeshProvision.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B415652A2EC19DE400C48446 /* RogoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; };
-		B415652B2EC19DE400C48446 /* RogoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B41565182EC19D9F00C48446 /* RogoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B42011762EC312D60009B739 /* RogoCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42011742EC312CF0009B739 /* RogoCore.framework */; };
+		B42011772EC312D60009B739 /* RogoCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B42011742EC312CF0009B739 /* RogoCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B483EEFF2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = B483EEFE2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm */; };
 		B483EF012EC1BB8B00CB9BFE /* RogoSdkImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483EF002EC1BB8B00CB9BFE /* RogoSdkImpl.swift */; };
 		D36E413653720B4914DE74E0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55890FC59718A1A58294017B /* ExpoModulesProvider.swift */; };
@@ -37,7 +37,7 @@
 				B41565232EC19DDE00C48446 /* CocoaMQTT.framework in Embed Frameworks */,
 				B41565272EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Embed Frameworks */,
 				B41565292EC19DE300C48446 /* nRFMeshProvision.framework in Embed Frameworks */,
-				B415652B2EC19DE400C48446 /* RogoCore.framework in Embed Frameworks */,
+				B42011772EC312D60009B739 /* RogoCore.framework in Embed Frameworks */,
 				B41565252EC19DE000C48446 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -55,11 +55,11 @@
 		55890FC59718A1A58294017B /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-RogoRNReproducer/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = RogoRNReproducer/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RogoRNReproducer/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B41565182EC19D9F00C48446 /* RogoCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RogoCore.framework; sourceTree = "<group>"; };
 		B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaMQTT.framework; sourceTree = "<group>"; };
 		B415651B2EC19DCA00C48446 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MqttCocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		B415651D2EC19DCA00C48446 /* nRFMeshProvision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nRFMeshProvision.framework; sourceTree = "<group>"; };
+		B42011742EC312CF0009B739 /* RogoCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RogoCore.framework; sourceTree = "<group>"; };
 		B483EEFC2EC1BA8E00CB9BFE /* RogoRNReproducer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RogoRNReproducer-Bridging-Header.h"; sourceTree = "<group>"; };
 		B483EEFD2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTNativeRogoSdk.h; sourceTree = "<group>"; };
 		B483EEFE2EC1BA8E00CB9BFE /* RCTNativeRogoSdk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeRogoSdk.mm; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			files = (
 				B41565222EC19DDE00C48446 /* CocoaMQTT.framework in Frameworks */,
 				B41565242EC19DE000C48446 /* CryptoSwift.framework in Frameworks */,
-				B415652A2EC19DE400C48446 /* RogoCore.framework in Frameworks */,
+				B42011762EC312D60009B739 /* RogoCore.framework in Frameworks */,
 				B41565282EC19DE300C48446 /* nRFMeshProvision.framework in Frameworks */,
 				B41565262EC19DE100C48446 /* MqttCocoaAsyncSocket.framework in Frameworks */,
 				1E1F1659456304DE04D92D8E /* Pods_RogoRNReproducer.framework in Frameworks */,
@@ -141,7 +141,7 @@
 		B4658F752EB5936C005100CF /* VendorFramework */ = {
 			isa = PBXGroup;
 			children = (
-				B41565182EC19D9F00C48446 /* RogoCore.framework */,
+				B42011742EC312CF0009B739 /* RogoCore.framework */,
 				B415651A2EC19DCA00C48446 /* CocoaMQTT.framework */,
 				B415651B2EC19DCA00C48446 /* CryptoSwift.framework */,
 				B415651C2EC19DCA00C48446 /* MqttCocoaAsyncSocket.framework */,

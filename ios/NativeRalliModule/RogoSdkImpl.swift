@@ -9,8 +9,11 @@ import Foundation
 import RogoCore
 
 @objcMembers class RogoSdkImpl: NSObject {
+  
+  var wifiSelectionHandler: ((String, String) -> ())?
+  
   // MARK: - Authentication
-
+  
   func signInWithToken(token: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
     print("[Rogo] signInWithToken \(token)")
     RGCore.shared.auth.signInWithLoginToken(loginToken: token) { response, error in
@@ -96,14 +99,66 @@ import RogoCore
   }
   
   // MARK: - Add wile device
+  //  func scanAvaiableWileDevice() {
+  //    print("[Rogo] start scanAvaiableWileDevice")
+  //    RGCore.shared.device.scanAvailableWileDevice(timeout: 60, limitRssi: nil) { response, error in
+  //      print("[Rogo] did completed \(String(describing: response))")
+  //    }
+  //  }
   func scanAvaiableWileDevice() {
     print("[Rogo] start scanAvaiableWileDevice")
-    RGCore.shared.device.scanAvailableWileDevice(timeout: 60, limitRssi: nil) { response, error in
-      print("[Rogo] did completed \(String(describing: response))")
+    //    RGCore.shared.device.scanAvailableWileDevice(timeout: 60, limitRssi: nil) { response, error in
+    //      print("[Rogo] did completed \(String(describing: response))")
+    //    }
+    
+    
+    RGCore.shared.device.scanAvailableWileDevices(deviceType: nil,
+                                                  timeout: 10) { response, error in
+      print("Did detected a new device \(response.product?.productID)")
+    } completion: { response, error in
+      print("Did completed scan and found \(response?.count)")
+      
+      
+      guard let device = response?.first else {
+        return
+      }
+      
+      RGCore.shared.device.wileDelegate = self
+      RGCore.shared.device.startConfigWileDevice(device: device)
     }
   }
   
   func stopScan() {
     RGCore.shared.device.stopScanDevice()
   }
+  
+  func connectWifi(ssid: String, pass: String) {
+    print("Rogo wifiSelectionHandler \(ssid) \(pass)")
+    self.wifiSelectionHandler!(ssid, pass)
+  }
+}
+
+extension RogoSdkImpl: RGBWileDelegate {
+  func didConnectDeviceSuccess(setDeviceInfoHandler: ((String?, String?) -> ())?) {
+    print("Rogo didConnectDeviceSuccess")
+  }
+  
+  func didScannedWifiInfo(_ listWifiInfos: [RogoCore.RGBWifiInfo], wifiSelectionHandler: ((String, String) -> ())?) {
+    print("Rogo didScannedWifiInfo")
+    self.wifiSelectionHandler = wifiSelectionHandler
+  }
+  
+  func didUpdateProgessing(percent: Int) {
+    print("Rogo didUpdateProgessing \(percent)")
+  }
+  
+  func didFailedToConnectWifi(_ ssid: String?, _ password: String?, _ wifiConnectionState: RogoCore.RGBWifiConnectionErrorType) {
+    print("Rogo didFailedToConnectWifi")
+  }
+  
+  func didFinishAddWileDevice(response: RogoCore.RGBDevice?, error: (any Error)?) {
+    print("Rogo didFinishAddWileDevice")
+  }
+  
+  
 }

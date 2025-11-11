@@ -34,6 +34,7 @@ export interface Spec extends TurboModule {
   // *************************************************
   scanAvaiableWileDevice: () => void;
   stopScan: () => void;
+  connectWifi: (ssid: string, pass: string) => void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NativeRogoSdk');
